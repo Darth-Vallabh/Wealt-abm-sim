@@ -33,3 +33,7 @@ class Config(BaseModel):
 def simulate(config: Config):
     results = run_simulation(config.dict())
     return results
+    
+@app.get("/")
+def read_root():
+    return {"message": "Backend is running"}
