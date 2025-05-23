@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from simulations.model import run_simulation
+from .simulations.model import run_simulation
 from pydantic import BaseModel
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React dev server
+    allow_origins=["*"],  # or use your GitHub Pages URL for tighter security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,3 +33,7 @@ class Config(BaseModel):
 def simulate(config: Config):
     results = run_simulation(config.dict())
     return results
+    
+@app.get("/")
+def read_root():
+    return {"message": "Backend is running"}
