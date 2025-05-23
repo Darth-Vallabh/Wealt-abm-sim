@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from simulations.model import run_simulation
+from .simulations.model import run_simulation
 from pydantic import BaseModel
 
 app = FastAPI()
