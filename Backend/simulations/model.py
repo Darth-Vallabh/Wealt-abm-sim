@@ -177,7 +177,7 @@ def simulate_trade(df):
         risk_aversionb = np.random.uniform(0.25,0.75)
         investmentA = np.random.uniform(0,person_A_wealth*risk_aversiona)
         investmentB = np.random.uniform(0,person_B_wealth *risk_aversionb)
-        pooled_investment = investmentA + investmentB
+        pooled_investment = investmentA + investmentB +1
         mean = 0.1
         std_dev = 0.2
         lower_bound = -1  # in terms of standard deviations
@@ -409,7 +409,7 @@ def distribute_Inheritance(df, stateCollections):
     return df, stateCollections
 def redistribute_tax_equally(df):
     df = df.copy()  # Avoid SettingWithCopyWarning
-#qeqe
+#qeqe1
     tax_columns = [
         'CG Tax Collected',
         'Income Tax Collected',
