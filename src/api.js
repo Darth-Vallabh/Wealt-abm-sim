@@ -1,11 +1,11 @@
-// src/api.js
 import axios from 'axios';
 
+// Replace with your actual Render backend URL
 const API = axios.create({
-  baseURL: 'http://localhost:8000', // adjust for prod
+  baseURL: 'https://wealt-abm-sim-4.onrender.com', // <- UPDATE this URL
 });
 
 export const runSimulation = async (config) => {
-  const response = await axios.post('http://127.0.0.1:8000/simulate', config);
+  const response = await API.post('/simulate', config);
   return response.data;
 };
